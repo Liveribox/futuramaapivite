@@ -12,6 +12,7 @@ export const App = () => {
       <ReactAudioPlayer
           src="futurama.mp3"
           autoPlay
+          controls
           loop
         />
 
