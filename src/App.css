@@ -128,12 +128,10 @@ body{
 }
 
 .loginForm{
-  
   text-align: center;
   background-color: #61dafb65;
   padding-bottom: 5em;
-  margin-left: 50em;
-
+  margin-left: 40em;
 }
 
 .loginInput {
@@ -161,7 +159,7 @@ body{
 }
 
 .loginH1{
-  margin-top: 7em;
+  margin-top: 1em;
 }
 
 .loginError{
@@ -190,8 +188,7 @@ button{
   color: white;
 }
 
-
 .card-grid{
-  width: 100em;
-  margin-left: 8em;
+  width: 80em;
+  margin-left: 6em;
 }
