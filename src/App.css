@@ -107,6 +107,12 @@ body{
   background-color: #FF00A1;
 }
 
+.botonDetalles{
+  font-size: 1em;
+  border-radius: 20em;
+  background-color: #C71000FF;
+}
+
 .card button{
   margin-top: 1em;
   margin-left: 2em;
@@ -195,3 +201,4 @@ button{
   margin-left: 6em;
   margin-bottom: 3em;
 }
+

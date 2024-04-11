@@ -24,6 +24,9 @@ export const FuturamaGrid = () => {
     //Variable para filtrar personaje
     const [filtro, setFiltro] = useState('')
 
+    //Te permite navegar entre pantallas
+    const navegar = useNavigate();
+
     //Funciones para filtrar personajes
     const filtrarPersonajes = (e) => {
         const valor = e.target.value;
@@ -35,8 +38,6 @@ export const FuturamaGrid = () => {
     ) : futuramas;
 
     
-    //Te permite navegar entre pantallas
-    const navegar = useNavigate();
 
     //Funcion para añadir personajes
     const addItem = (newItem) => {
@@ -91,13 +92,13 @@ export const FuturamaGrid = () => {
         {
             name: "Eliminar",
             selector: row => <button className="botonEliminar" onClick={() =>{deleteItem(row.id)}}>Eliminar</button>
+        },
+        {
+            name: "Detalles",
+            selector: row => <button className="botonDetalles" onClick={() => {navegar("/detallesFutu",{state: {data: row.id}})}}>Detalles</button>
         }
       ];
 
-
-      
-
-      
 
     return(
         <div className="card-grid">
