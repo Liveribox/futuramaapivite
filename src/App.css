@@ -138,8 +138,8 @@ body{
 .loginForm{
   text-align: center;
   background-color: #61dafb65;
+  padding-top: 3em;
   padding-bottom: 5em;
-  margin-left: 40em;
 }
 
 .loginInput {
@@ -202,3 +202,31 @@ button{
   margin-bottom: 3em;
 }
 
+
+.detallesNombre{
+  text-align: center;
+}
+
+.detallesGenero{
+  text-align: center;
+}
+
+.detallesEspecie{
+  text-align: center;
+}
+
+.detallesImagen{
+  width: 30%;
+}
+
+.imagenLogin{
+  width: 15%;
+}
+
+.detallesCarga{
+  text-align: center;
+}
+
+.detallesCargaNave{
+  margin-top: 6em;
+}

@@ -7,6 +7,8 @@ export const DetallesFutu = () => {
     const [futurama, setFuturama] = useState(null);
     const id_futurama = useLocation().state?.data;
 
+    const sleep = ms => new Promise(r => setTimeout(r, ms));
+
     useEffect(() => {
 
         const fetchData = async () => {
@@ -15,7 +17,7 @@ export const DetallesFutu = () => {
                 const obtenerDatosPorId = await getItembyid(id_futurama);
                 setFuturama(obtenerDatosPorId);
             } catch (error) {
-                console.error('Error obteniendo datos:', error);
+                console.error('Error obteniendo los datos:', error);
             }
         };
 
@@ -26,16 +28,28 @@ export const DetallesFutu = () => {
     }, [id_futurama]);
 
     if (!futurama) {
-        return <h1>Cargando...</h1>
+        return (
+            
+            <>  
+                <h1 className='detallesCarga'>Cargando...</h1>
+                <center><img className="detallesCargaNave" src="https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/fd64c447468325.587bdbb1be3bf.gif" alt="Cargando..."></img></center>
+            </> 
+        )
     }
+
+    
+    setTimeout(() => {
+        console.log("fghy");    
+    }, 9000);
+
 
     return (
         <>
-            <h1 className='detalles'>Detalles</h1>
-            <h1 className='detallesNombre'>{futurama.name}</h1>
-            <h1 className='detallesGenero'>{futurama.gender}</h1>
-            <h1 className='detallesEspecie'>{futurama.species}</h1>
-            <img className='detallesImagen' src={futurama.image} alt={futurama.name}></img>
+            
+            <h3 className='detallesNombre'>{futurama.name}</h3>
+            <h3 className='detallesGenero'>{futurama.gender}</h3>
+            <h3 className='detallesEspecie'>{futurama.species}</h3>
+            <center><img className='detallesImagen' src={futurama.image} alt={futurama.name}></img></center>
         </>
     );
 }

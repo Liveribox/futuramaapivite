@@ -40,7 +40,10 @@ export const LoginForm = () => {
             <br/>
             <br/>
             <button className="loginButton" type="submit">Iniciar sesión</button>
-            {error && <p className="loginError">{error}</p>}    
+            <br/>
+            <br/>
+            <img className="imagenLogin" src="https://pics.filmaffinity.com/futurama-269665233-mmed.jpg" alt="nave futurama"></img>
+            {error && <p className="loginError">{error}</p>}
         </form>
     );
 }
