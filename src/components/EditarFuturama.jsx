@@ -1,15 +1,12 @@
 import { useState } from "react";
 import { Modal , Input } from "antd";
 
-
 export const EditarFuturama = ({id ,name,gender,specie,image,editItem,setOpenForm2}) => {
 
     const [inputName, setInputName] = useState('');
     const [inputGender, setInputGender] = useState('');
     const [inputSpecies, setInputSpecies] = useState('');
     const [inputImagen, setinputImagen] = useState('');
-
-
     
     const EditItem = () => {
         const Item = {
@@ -19,7 +16,6 @@ export const EditarFuturama = ({id ,name,gender,specie,image,editItem,setOpenFor
             species: inputSpecies,
             image: inputImagen
         }
-
         editItem(Item)
     }
 
@@ -46,9 +42,9 @@ export const EditarFuturama = ({id ,name,gender,specie,image,editItem,setOpenFor
         onOk={editar}
         onCancel={esconderModal}
         okText="Editar"
-        cancelText="Cancelar"
-      >
-        <Input className="inputEdit" placeholder={name} id="name" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
+        cancelText="Cancelar">
+        
+        <Input className="inputEdit"  placeholder={name} id="name" value={inputName} onChange={(e) => setInputName(e.target.value)}/>
         <br/>
         <br/>
         <Input className="inputEdit" placeholder={gender} id="genero" value={inputGender} onChange={(e) => setInputGender(e.target.value)}/>

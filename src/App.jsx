@@ -14,7 +14,7 @@ export const App = () => {
           autoPlay
           controls
           loop
-        />
+      />
 
       <Router>
         <Routes>

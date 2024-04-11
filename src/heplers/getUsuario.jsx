@@ -1,5 +1,4 @@
 
-
 export const getUsuario = async() => {
   
     const url = "https://usuarios3.free.beeceptor.com/usuarios";

@@ -27,13 +27,14 @@ export const FuturamaGrid = () => {
     //Funciones para filtrar personajes
     const filtrarPersonajes = (e) => {
         const valor = e.target.value;
-        setFiltro(valor);
+        setFiltro(valor)
     };
 
-    const personajesFiltrados = futuramas.filter(futurama =>
+    const personajesFiltrados = filtro.length >= 3 ? futuramas.filter(futurama =>
         futurama.name.toLowerCase().includes(filtro.toLowerCase())
-    );
+    ) : futuramas;
 
+    
     //Te permite navegar entre pantallas
     const navegar = useNavigate();
 
@@ -115,7 +116,7 @@ export const FuturamaGrid = () => {
                 highlightOnHover
                 showGridlines
                 responsive
-                center
+                pagination
             />
 
             <BackTop>
