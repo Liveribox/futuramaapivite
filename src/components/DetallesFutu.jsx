@@ -7,8 +7,6 @@ export const DetallesFutu = () => {
     const [futurama, setFuturama] = useState(null);
     const id_futurama = useLocation().state?.data;
 
-    const sleep = ms => new Promise(r => setTimeout(r, ms));
-
     useEffect(() => {
 
         const fetchData = async () => {
@@ -36,12 +34,6 @@ export const DetallesFutu = () => {
             </> 
         )
     }
-
-    
-    setTimeout(() => {
-        console.log("fghy");    
-    }, 9000);
-
 
     return (
         <>
