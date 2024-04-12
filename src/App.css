@@ -168,10 +168,13 @@ body{
 
 .loginH1{
   margin-top: 1em;
+  color: #F34F85;
 }
 
 .loginError{
   font-weight: bold;
+  font-size: large;
+  color: #FF114F;
 }
 
 button{

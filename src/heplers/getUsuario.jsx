@@ -1,7 +1,7 @@
 
 export const getUsuario = async() => {
   
-    const url = "https://usuarios3.free.beeceptor.com/usuarios";
+    const url = "https://usuarios.free.beeceptor.com/usuarios";
     const resp = await fetch(url);
     const { usuarios } = await resp.json();
 

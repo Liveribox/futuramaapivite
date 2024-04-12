@@ -27,7 +27,7 @@ export const LoginForm = () => {
 
         } catch (error) {
             setError('Ocurrió un error al intentar iniciar sesión.');
-            setError('Comprueba si la API está activa');
+            setError('Muchas peticiones vuelve en un rato');
         }
     };
 

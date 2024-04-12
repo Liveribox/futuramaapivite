@@ -28,9 +28,10 @@ export const FuturamaGrid = () => {
     //Variable para mostrar personajes filtrados
     const [personajesFiltrados , setPersonajesFiltrados] = useState([]);
 
+    //Comprueba en que pagina de la DataTable estás
     const [paginaActual, setPaginaActual] = useState(1);
 
-    const [permisoConcedido, setPermisoConcedido] = useState(false);
+    //const [permisoConcedido, setPermisoConcedido] = useState(false);
 
     let permisoLocation = useLocation().state?.dataPermiso;
 
