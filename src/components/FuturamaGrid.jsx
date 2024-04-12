@@ -153,7 +153,8 @@ export const FuturamaGrid = () => {
                 responsive
                 pagination
                 paginationDefaultPage={paginaActual}
-                onChangePage={cambiarPagina}         
+                onChangePage={cambiarPagina}
+                noDataComponent="No se ha encontrado ningún personaje 🙄"         
             />
 
             <BackTop>
