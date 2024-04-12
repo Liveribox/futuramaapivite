@@ -28,9 +28,11 @@ export const FuturamaGrid = () => {
     //Variable para mostrar personajes filtrados
     const [personajesFiltrados , setPersonajesFiltrados] = useState([]);
 
+    const [paginaActual, setPaginaActual] = useState(1);
+
     const [permisoConcedido, setPermisoConcedido] = useState(false);
 
-    const permisoLocation = useLocation().state?.dataPermiso;
+    let permisoLocation = useLocation().state?.dataPermiso;
 
     //Te permite navegar entre pantallas
     const navegar = useNavigate();
@@ -59,7 +61,7 @@ export const FuturamaGrid = () => {
                 setPersonajesFiltrados(futuramas);
             }
             
-        }, 2000);
+        }, 1000);
         
         return () => clearTimeout(tiempoDeCarga);
 
@@ -126,6 +128,11 @@ export const FuturamaGrid = () => {
         }
       ];
 
+      const cambiarPagina = pagina => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        setPaginaActual(pagina);
+      };
+
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
@@ -144,6 +151,8 @@ export const FuturamaGrid = () => {
                 showGridlines
                 responsive
                 pagination
+                paginationDefaultPage={paginaActual}
+                onChangePage={cambiarPagina}         
             />
 
             <BackTop>
