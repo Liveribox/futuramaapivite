@@ -1,10 +1,11 @@
 import { useFetchFuturamas } from "../hooks/useFetchFuturama"
-import { useState } from "react";
+import { useState , useEffect } from "react";
 import { CrearFuturama } from "./CrearFuturama";
 import { EditarFuturama } from "./EditarFuturama";
 import DataTable from "react-data-table-component";
 import { useNavigate } from "react-router-dom";
 import { BackTop , Image , Input } from "antd";
+import { useLocation } from "react-router-dom"
 
 
 export const FuturamaGrid = () => {
@@ -24,6 +25,13 @@ export const FuturamaGrid = () => {
     //Variable para filtrar personaje
     const [filtro, setFiltro] = useState('')
 
+    //Variable para mostrar personajes filtrados
+    const [personajesFiltrados , setPersonajesFiltrados] = useState([]);
+
+    const [permisoConcedido, setPermisoConcedido] = useState(false);
+
+    const permisoLocation = useLocation().state?.dataPermiso;
+
     //Te permite navegar entre pantallas
     const navegar = useNavigate();
 
@@ -33,12 +41,31 @@ export const FuturamaGrid = () => {
         setFiltro(valor)
     };
 
-    const personajesFiltrados = filtro.length >= 3 ? futuramas.filter(futurama =>
-        futurama.name.toLowerCase().includes(filtro.toLowerCase())
-    ) : futuramas;
+    useEffect(() => {
+        console.log("Permiso pasado valor " + permisoLocation);
 
+        if(permisoLocation === false || permisoLocation === undefined){
+            navegar("/");
+        }
+
+        const tiempoDeCarga = setTimeout(() => {
+
+            if (filtro.length >= 3) {
+                const filtrados = futuramas.filter(futurama =>
+                    futurama.name.toLowerCase().includes(filtro.toLowerCase())
+                );
+                setPersonajesFiltrados(filtrados);
+            } else {
+                setPersonajesFiltrados(futuramas);
+            }
+            
+        }, 2000);
+        
+        return () => clearTimeout(tiempoDeCarga);
+
+    }, [filtro, futuramas]);
     
-
+    
     //Funcion para añadir personajes
     const addItem = (newItem) => {
         setFuturamas([...futuramas , newItem])
@@ -99,11 +126,10 @@ export const FuturamaGrid = () => {
         }
       ];
 
-
     return(
         <div className="card-grid">
             <button className="botonCrear" onClick={() =>{setOpenForm(true);}}>Crear</button>
-            <button className="botonSalir" onClick={() => {navegar('/');}}>Salir</button>
+            <button className="botonSalir" onClick={() => {navegar('/'); permisoLocation = false}}>Salir</button>
 
             {OpenForm && <CrearFuturama addItem={addItem} newId={futuramas.length} setOpenForm={setOpenForm}/>}
             {OpenForm2 && <EditarFuturama id={Iddato} name={name} gender={gender}  specie={specie} image={image} editItem={editItem} setOpenForm2={setOpenForm2}/>}

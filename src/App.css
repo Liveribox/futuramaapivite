@@ -217,7 +217,7 @@ button{
 }
 
 .detallesImagen{
-  width: 30%;
+  width: 20%;
 }
 
 .imagenLogin{
@@ -230,4 +230,9 @@ button{
 
 .detallesCargaNave{
   margin-top: 6em;
+}
+
+.detallesImagen{
+  width: 10%;
+  height: 10%;
 }

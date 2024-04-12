@@ -8,6 +8,8 @@ export const LoginForm = () => {
     const [nombreUsuario, setNombreUsuario] = useState('');
     const [contraseña, setContraseña] = useState('');
     const [error, setError] = useState('');
+    const [permiso , setPermiso ] = useState(true);
+    
 
     const navegar = useNavigate();
 
@@ -18,7 +20,7 @@ export const LoginForm = () => {
             const isValid = await LoginUsuario(nombreUsuario, contraseña);
 
             if (isValid) {
-                navegar('/futugrid');
+                navegar('/futugrid',{state: {dataPermiso: permiso}});
             } else {
                 setError('Nombre de usuario o contraseña incorrectos.');
             }
@@ -27,7 +29,6 @@ export const LoginForm = () => {
             setError('Ocurrió un error al intentar iniciar sesión.');
             setError('Comprueba si la API está activa');
         }
-        
     };
 
     return (
